@@ -3,6 +3,7 @@ string tsv = "Measure\tDependsOnTable\tType";  // TSV file header row
 // Loop through all measures:
 foreach(var m in Model.AllMeasures) {
 
+    // REMOVE .Deep() if you don't want the indirect dependancies
     var allReferences = m.DependsOn.Deep();
 
     var allTableReferences = allReferences.OfType<Table>()
